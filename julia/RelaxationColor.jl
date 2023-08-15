@@ -1,8 +1,5 @@
-
 using Colors
 using DelimitedFiles
-
-
 
 # RelaxationColorMap: acts in two ways:
 #   1. generate a colormap to be used on display, given image type 
