@@ -40,7 +40,7 @@ function relaxationColorMap(maptype::String, x, loLev, upLev)
     #    the values of 1 ... 99 have to be displayed differently than 0 ("invalid")
     eps = (upLev-loLev)/size(colortable)[1]
     xClip = map(x) do p
-        (p < eps) ? loLev-eps : ((p < loLev+eps) ? loLev+eps : p)
+        (p < eps) ? loLev-eps : ((p < loLev+eps) ? loLev+1.5*eps : p)  # the 1.5 anticipates a "floor" in the viewing pipeline
     end   
     if (loLev < 0)
         xClip = map(x) do p
