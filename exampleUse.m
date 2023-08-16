@@ -2,7 +2,7 @@
 addpath('/my/git/location');  
 
 
-% Load the Julia file containing the variable "myT1"
+% Load the matlab file containing the variable "myT1"
 fn = '/my/T1/file/loction/T1image.mat';
 data = load(fn);
 im = data.myT1;

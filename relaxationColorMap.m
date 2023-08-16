@@ -1,5 +1,5 @@
 function [xClip, lutCmap] = relaxationColorMap(maptype, x, loLev, upLev)
-    fn = fullfile(fileparts(mfilename('fullpath')),'..');
+    fn = fullfile(fileparts(mfilename('fullpath')));
     mmm = char(maptype);
     mmm(1) = upper(mmm(1));
     if ismember(mmm, {'T1', 'R1'})

@@ -20,11 +20,9 @@ function relaxationColorMap(maptype::String, x, loLev, upLev)
     fn = @__DIR__
     maptype = uppercasefirst(maptype)
     if (maptype in ["T1","R1"])
-        fn = dirname(fn)*"/lipari.csv"
-        #colortable = copy(lipari)
+        fn = fn*"/lipari.csv"
     elseif (maptype in ["T2","T2*","R2","R2*","T1rho","T1ρ","R1rho","R1ρ"])
-        fn = dirname(fn)*"/navia.csv"
-        # colortable = copy(navia)
+        fn = fn*"/navia.csv"
     else
         error("Expect 'T1', 'T2', 'R1 or 'R2' as maptype")
     end
