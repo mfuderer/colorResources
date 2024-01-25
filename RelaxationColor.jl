@@ -18,17 +18,17 @@ using DelimitedFiles
 #       colormap to be used in image-display functions (in Colors.RGB format)
 function relaxationColorMap(maptype::String, x, loLev, upLev)
     fn = @__DIR__
-    maptype = uppercasefirst(maptype)
-    if (maptype in ["T1","R1"])
+    Maptype = uppercasefirst(maptype)
+    if (Maptype in ["T1","R1"])
         fn = fn*"/lipari.csv"
-    elseif (maptype in ["T2","T2*","R2","R2*","T1rho","T1ρ","R1rho","R1ρ"])
+    elseif (Maptype in ["T2","T2*","R2","R2*","T1rho","T1ρ","R1rho","R1ρ"])
         fn = fn*"/navia.csv"
     else
-        error("Expect 'T1', 'T2', 'R1 or 'R2' as maptype")
+        fn = fn*"/"*maptype*".csv"
     end
     colortable = readdlm(fn, ' ', '\n')
 
-    if maptype[1]=='R'
+    if Maptype[1]=='R'
         colortable = reverse(colortable,dims=1)
     end
 
