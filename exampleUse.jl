@@ -2,11 +2,11 @@
 
 using PyPlot
 using FileIO
-include("/my/git/location/RelaxationColor.jl")  # the location of the julia files from git
+include("RelaxationColor.jl")                   # the location of the julia files from git
 
-fn = "/my/T1/file/loction/T1image.jld"          # A previously stored file containing the Julia variable "myT1",
+fn = "sampleT1map.jld"          # A previously stored file containing the Julia variable "myT1",
                                                 #  assumed to be a 2-dimensional (or 3-dimensional) array of Float
-im = FileIO.load(fn)["myT1"]
+im = FileIO.load(fn)["sampleT1map"]
 
 loLev = 400.0; upLev = 2000.0;                  # Example of range to be displayed
 imClip, rgb_vec = relaxationColorMap("T1", im, loLev, upLev)  # call to resource, generating a colormap 

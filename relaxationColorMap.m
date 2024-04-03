@@ -9,7 +9,7 @@ function [xClip, lutCmap] = relaxationColorMap(maptype, x, loLev, upLev)
     else
         error('Expect ''T1'', ''T2'', ''R1'', or ''R2'' as maptype');
     end
-    colortable = dlmread(fn, ' ', 1, 0);
+    colortable = dlmread(fn, ' ', 0, 0);
 
     if mmm(1) == 'R'
         colortable = flipud(colortable);
@@ -19,11 +19,11 @@ function [xClip, lutCmap] = relaxationColorMap(maptype, x, loLev, upLev)
 
     % modification of the image to be displayed
     eps = (upLev - loLev) / size(colortable, 1);
-    xClip = arrayfun(@(p) (p < eps) * (p < loLev + eps) * (loLev - eps) + ...
-                    (p < eps) * (p >= loLev + eps) * (loLev + eps) + (p >= eps) * p, x);
+    xClip = (x < eps) .* (x < loLev + eps) .* (loLev - eps) + ...
+                    (x < eps) .* (x >= loLev + eps) .* (loLev + eps) + (x >= eps) .* x;
 
     if loLev < 0
-        xClip = arrayfun(@(p) (p < eps) * (loLev - eps) + (p >= eps) * p, x);
+        xClip = (x < eps) .* (loLev - eps) + (x >= eps) .* x;
     end
 
     lutCmap = colorLogRemap(colortable, loLev, upLev);

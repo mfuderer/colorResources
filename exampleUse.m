@@ -2,10 +2,10 @@
 addpath('/my/git/location');  
 
 
-% Load the matlab file containing the variable "myT1"
-fn = '/my/T1/file/loction/T1image.mat';
+% Load the matlab file containing an example T1 map 
+fn = 'sampleT1map.mat';
 data = load(fn);
-im = data.myT1;
+im = data.sampleT1map;
 
 loLev = 400.0;
 upLev = 2000.0;
