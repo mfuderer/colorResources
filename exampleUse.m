@@ -1,7 +1,7 @@
 % Load the matlab file containing an example T1 map 
 fn = 'sampleT1map.mat';
 data = load(fn);
-im = data.sampleT1map;
+im = data.sampleT1;
 
 loLev = 400.0;
 upLev = 2000.0;
