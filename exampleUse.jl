@@ -4,7 +4,7 @@ using PyPlot
 using FileIO
 include("RelaxationColor.jl")                   # the location of the julia files from git
 
-fn = "sampleT1map.jld"          # A previously stored file containing the Julia variable "myT1",
+fn = "sampleT1map.jld"          # A previously stored file containing the Julia variable "sampleT1map",
                                                 #  assumed to be a 2-dimensional (or 3-dimensional) array of Float
 im = FileIO.load(fn)["sampleT1map"]
 
@@ -16,3 +16,4 @@ cmap = PyPlot.ColorMap("relaxationColor", rgb_vec, length(rgb_vec), 1.0) # trans
 figure()
 imshow(imClip, vmin=loLev, vmax =upLev, interpolation="bicubic", cmap=cmap)
 colorbar()
+show()
