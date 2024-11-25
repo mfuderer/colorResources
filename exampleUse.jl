@@ -17,3 +17,12 @@ figure()
 imshow(imClip, vmin=loLev, vmax =upLev, interpolation="bicubic", cmap=cmap)
 colorbar()
 show()
+
+######## Same example with CairoMakie
+#=
+f=CairoMakie.Figure()
+ax=Axis(f[1,1],aspect=DataAspect())
+h=heatmap!(ax,rotr90(imClip),colormap=rgb_vec,colorrange=(loLev,upLev))
+Colorbar(f[1,2],h)
+f
+=#
